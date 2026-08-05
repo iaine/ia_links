@@ -1,0 +1,48 @@
+{
+  "name": "ia-screenshotter",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Cross-platform desktop app: full-page screenshots for a batch of URLs (e.g. from the IA Link Ripper).",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.mjs",
+    "pack": "electron-builder --dir",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux",
+    "dist": "electron-builder -mwl"
+  },
+  "devDependencies": {
+    "electron": "^43.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "dependencies": {
+    "electron-store": "^11.0.0"
+  },
+  "build": {
+    "appId": "org.example.ia-screenshotter",
+    "productName": "IA Screenshotter",
+    "files": [
+      "src/**/*",
+      "lib/**/*",
+      "package.json",
+      "!**/*.test.mjs"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Development"
+    }
+  }
+}
