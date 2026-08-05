@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IA Link Ripper</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <h1>IA Link Ripper</h1>
+    <button id="optionsBtn" class="iconBtn" type="button" title="Options">&#9881;</button>
+  </div>
+
+  <div id="message" class="message" hidden></div>
+
+  <form id="linkForm">
+    <label for="inputUrls">URLs (one per line):</label>
+    <textarea id="inputUrls" rows="6" placeholder="example.com" required></textarea>
+
+    <label class="inline">
+      <input type="checkbox" id="showDupes"> Show duplicates
+    </label>
+
+    <fieldset>
+      <legend>Timestamp</legend>
+      <label class="inline"><input type="radio" name="timestamp" value="" checked> None</label>
+      <label class="inline"><input type="radio" name="timestamp" value="1_day"> 1 day</label>
+      <label class="inline"><input type="radio" name="timestamp" value="10_day"> 10 day</label>
+      <label class="inline"><input type="radio" name="timestamp" value="1_month"> 1 month</label>
+    </fieldset>
+
+    <label for="format">Output format:</label>
+    <select id="format">
+      <option value="txt">Text</option>
+      <option value="csv">CSV</option>
+      <option value="html">HTML (links page)</option>
+    </select>
+
+    <div class="actions">
+      <button id="submitBtn" type="submit">Get Links</button>
+      <button id="downloadBtn" type="button" disabled>Download</button>
+      <button id="clearBtn" type="button">Clear</button>
+    </div>
+  </form>
+
+  <pre id="output"></pre>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

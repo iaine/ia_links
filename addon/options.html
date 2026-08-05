@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IA Link Ripper - Options</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="options-page">
+  <h1>IA Link Ripper - Options</h1>
+
+  <p>These defaults are applied every time the popup opens. They're
+  synced via your browser's <code>storage.sync</code>, so they follow
+  you between devices where supported.</p>
+
+  <div id="message" class="message" hidden></div>
+
+  <form id="optionsForm">
+    <label class="inline">
+      <input type="checkbox" id="defaultShowDupes"> Show duplicates by default
+    </label>
+
+    <fieldset>
+      <legend>Default timestamp</legend>
+      <label class="inline"><input type="radio" name="defaultTimestamp" value=""> None</label>
+      <label class="inline"><input type="radio" name="defaultTimestamp" value="1_day"> 1 day</label>
+      <label class="inline"><input type="radio" name="defaultTimestamp" value="10_day"> 10 day</label>
+      <label class="inline"><input type="radio" name="defaultTimestamp" value="1_month"> 1 month</label>
+    </fieldset>
+
+    <label for="defaultFormat">Default output format:</label>
+    <select id="defaultFormat">
+      <option value="txt">Text</option>
+      <option value="csv">CSV</option>
+      <option value="html">HTML (links page)</option>
+    </select>
+
+    <div class="actions">
+      <button id="saveBtn" type="submit">Save</button>
+      <button id="resetBtn" type="button">Reset to defaults</button>
+    </div>
+  </form>
+
+  <p class="pageFooter">Version 1.1.0</p>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>

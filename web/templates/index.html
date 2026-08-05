@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Links</title>
+</head>
+<body>
+    <div id="formInstructions">
+        <p>Enter one or more URLs (one per line) to pull their Wayback Machine
+        snapshot links, then choose an output format.</p>
+    </div>
+
+    {% if error %}
+    <div id="errorMessage" style="color: #b00020; border: 1px solid #b00020; padding: 0.5em; margin-bottom: 1em;">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    {% if warning %}
+    <div id="warningMessage" style="color: #8a6d00; border: 1px solid #8a6d00; padding: 0.5em; margin-bottom: 1em;">
+        {{ warning }}
+    </div>
+    {% endif %}
+
+    <div id="formBody">
+        <form id="linkForm" method="post" action="/">
+            <label for="inputUrls">Input URLs:</label><br>
+            <textarea id="inputUrls" name="url" rows="10" cols="50" placeholder="Enter URLs, one per line" required></textarea><br>
+
+            <label for="showDupes">Show Duplicates:</label>
+            <input type="checkbox" id="showDupes" name="show_dupes" value="true"><br>
+
+            <label>Timestamp (optional):</label><br>
+            <input type="radio" id="timestamp_none" name="timestamp" value="" checked>
+            <label for="timestamp_none">None</label><br>
+            <input type="radio" id="timestamp_day" name="timestamp" value="1_day">
+            <label for="timestamp_day">1 day</label><br>
+            <input type="radio" id="timestamp_10day" name="timestamp" value="10_day">
+            <label for="timestamp_10day">10 day</label><br>
+            <input type="radio" id="timestamp_month" name="timestamp" value="1_month">
+            <label for="timestamp_month">1 month</label><br>
+
+            <label for="format">Output Format:</label>
+            <select id="format" name="format">
+                <option value="txt">Text</option>
+                <option value="csv">CSV</option>
+                <option value="html">HTML (links page)</option>
+            </select><br>
+
+            <button id="submitBtn" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

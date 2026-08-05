@@ -1,0 +1,3 @@
+venv/
+addon/node_modules/
+web/__pycache__/

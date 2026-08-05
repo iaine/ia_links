@@ -1,0 +1,16 @@
+{
+  "name": "ia-link-ripper",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Firefox/Chrome extension: pull Wayback Machine snapshot links for one or more URLs.",
+  "scripts": {
+    "build:firefox": "node build.mjs --target firefox",
+    "build:chrome": "node build.mjs --target chrome",
+    "build:all": "node build.mjs --target firefox && node build.mjs --target chrome",
+    "test": "node --test lib/links.test.mjs settings.test.mjs resultsStore.test.mjs"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1"
+  }
+}

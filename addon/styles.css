@@ -1,0 +1,101 @@
+body {
+  width: 340px;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 15px;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+label.inline {
+  display: inline-block;
+  margin-right: 8px;
+  font-weight: normal;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+button {
+  flex: 1;
+}
+
+#output {
+  max-height: 180px;
+  overflow: auto;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 6px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.message {
+  padding: 6px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.message.error {
+  background: #fde8e8;
+  color: #b00020;
+  border: 1px solid #b00020;
+}
+
+.message.warning {
+  background: #fff6e0;
+  color: #8a6d00;
+  border: 1px solid #8a6d00;
+}
+
+.message.success {
+  background: #e7f6e7;
+  color: #1e6b1e;
+  border: 1px solid #1e6b1e;
+}
+
+body.options-page {
+  width: 420px;
+}
+
+.iconBtn {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+}
+
+.pageFooter {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #666;
+}

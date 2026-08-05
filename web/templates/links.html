@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Links - Results</title>
+</head>
+<body>
+    <p><a href="/">&larr; Back</a></p>
+
+    {% if warning %}
+    <div id="warningMessage" style="color: #8a6d00; border: 1px solid #8a6d00; padding: 0.5em; margin-bottom: 1em;">
+        {{ warning }}
+    </div>
+    {% endif %}
+
+    <pre id="results">{{ result | safe }}</pre>
+</body>
+</html>
