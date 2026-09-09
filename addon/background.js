@@ -29,9 +29,46 @@ nativeRuntime.onMessage.addListener((message, sender, sendResponse) => {
   return true; // keep the message channel open for the async sendResponse above
 });
 
+//reformat the text to csv format by replacing url to 
+// url, page, pagewithoutlink, date object
+function to_csv (text) {
+  let _text = text.split("\n");
+  _text.forEach((line, index) => {
+    if (line.trim().length !== 0) {
+      const idx = line.split("/");
+      const http = idx.slice(5).join("/");
+      //const http = (idx[(idx.length - 2)].trim().startsWith("http") ? idx[(idx.length - 2)] +  idx[(idx.length - 1)] : idx[idx.length - 1]);
+      _text[index] = [http, (line), line.replace(/id_/, ""), '\"' + idx[4] + '\"'].join(",");
+    }
+  });
+  
+  return ["url", "page", "pagewithoutlink", "date","\n"] + _text.join("\n");
+};
+
+//format the data into a plain html page of links, so that it can be opened in a browser and clicked on.
+function to_html (text) {
+  let _text = text.split("\n");
+  _text.forEach((line, index) => {
+    if (line.trim().length !== 0) {
+      _text[index] = "<a href='" + line + "'>" + line + "</a>";
+    }
+  });
+  
+  return "<!DOCTYPE html><html><head><title>Links</title></head><body>" + _text.join("<br>") + "</body></html>";
+}
+
 async function downloadResult({ text, format, filename }) {
+
+  if (format == "csv") {
+    //reformat the text to csv format by replacing new lines with commas.
+    text = to_csv(text);
+  } else if (format == "html") {
+    text = to_html(text);
+  }
+
   const blob = new Blob([text], { type: CONTENT_TYPES[format] || "text/plain" });
-  const url = URL.createObjectURL(blob);
+
+  const url = (globalThis.URL ? URL : webkitURL).createObjectURL(blob);
 
   try {
     const downloadId = await browserAPI.downloads.download({
@@ -42,10 +79,10 @@ async function downloadResult({ text, format, filename }) {
     // Best-effort cleanup; if the service worker gets suspended before
     // this fires, the object URL is simply released when the worker's
     // context is torn down - not a functional problem for the user.
-    setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    setTimeout(() => (globalThis.URL ? URL : webkitURL).revokeObjectURL(url), 60_000);
     return downloadId;
   } catch (err) {
-    URL.revokeObjectURL(url);
+    (globalThis.URL ? URL : webkitURL).revokeObjectURL(url);
     throw err;
   }
 }
