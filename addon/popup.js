@@ -163,6 +163,11 @@ form.addEventListener("submit", async (event) => {
 // before the response arrives, that's fine, the download already started.
 downloadBtn.addEventListener("click", async () => {
   if (!lastResult.text) return;
+  
+  //read pop up dropdown values for format from the pop up and add to lastResult object
+  var e = document.getElementById("format");
+  var format = e.options[e.selectedIndex].value;
+  lastResult.format = format;
 
   const filename = buildFilename(lastResult.urlList, lastResult.format);
 
