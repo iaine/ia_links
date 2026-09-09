@@ -1,0 +1,225 @@
+/* ==========================
+   Base Layout
+   ========================== */
+
+body {
+    font: 16px/1.5 Helvetica, Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    color: #222;
+    background-color: #fff;
+}
+
+header {
+    margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    color: #222;
+}
+
+/* ==========================
+   Two-Column Flex Layout
+   ========================== */
+
+.flex-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Form column */
+.formBody {
+    flex: 2;
+    padding: 1rem;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+/* Instructions column */
+.methodsIntr {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+/* ==========================
+   Intro / Instructions
+   ========================== */
+
+.formInstructions {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+/* ==========================
+   Form Elements
+   ========================== */
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+textarea,
+select,
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 12rem;
+}
+
+select:focus,
+textarea:focus,
+input:focus,
+button:focus {
+    outline: 3px solid #80bdff;
+    outline-offset: 2px;
+}
+
+/* ==========================
+   Checkbox
+   ========================== */
+
+.form-group input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.form-group.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+/* ==========================
+   Radio Button Group
+   ========================== */
+
+.timestampFilter {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.timestampFilter legend {
+    font-weight: 600;
+    padding: 0 0.5rem;
+}
+
+.timestampFilter label {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+}
+
+.timestampFilter input[type="radio"] {
+    margin-right: 0.25rem;
+}
+
+/* ==========================
+   Submit Button
+   ========================== */
+
+.submitBtn {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #005ea5;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.submitBtn:hover {
+    background-color: #004b85;
+}
+
+.submitBtn:active {
+    background-color: #003d6b;
+}
+
+/* ==========================
+   Messages
+   ========================== */
+
+.errorMessage {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #b00020;
+    border-radius: 4px;
+    background-color: #fff5f7;
+    color: #b00020;
+}
+
+.warningMessage {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #8a6d00;
+    border-radius: 4px;
+    background-color: #fff9e6;
+    color: #8a6d00;
+}
+
+/* ==========================
+   Lists in Instructions Panel
+   ========================== */
+
+.methodsIntr ul,
+.methodsIntr ol {
+    padding-left: 1.5rem;
+}
+
+.methodsIntr li {
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================
+   Mobile Layout
+   ========================== */
+
+@media (max-width: 800px) {
+
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .formBody,
+    .methodsIntr {
+        width: 100%;
+    }
+
+    .timestampFilter label {
+        display: block;
+    }
+}
