@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "IA Link Ripper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pull Wayback Machine (Internet Archive CDX) snapshot links for one or more URLs, and export as text, CSV, or an HTML links page.",
-  "author": "Link Ripper",
+  "author": "CIM",
 
   "permissions": [
     "downloads",
@@ -31,7 +31,7 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "ia-link-ripper@example.com",
+      "id": "ia-link-ripper@warwick.ac.uk",
       "strict_min_version": "109.0"
     }
   }
