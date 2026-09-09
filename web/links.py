@@ -67,7 +67,7 @@ class Links():
         query_url = self._build_query_url(url, show_dupes, timestamp)
 
         try:
-            r = requests.get(query_url, timeout=300, headers=self.HEADERS)
+            r = requests.get(query_url, timeout=500, headers=self.HEADERS)
         except requests.Timeout:
             raise LinksError("Timed out contacting archive.org for {}".format(url), url=url)
         except requests.RequestException as exc:
